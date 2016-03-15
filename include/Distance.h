@@ -1,22 +1,20 @@
 #ifndef DISTANCE_H_
 #define DISTANCE_H_
 
-class Distance
+class Distance //Distance between two particles
 {
 
 private:
 
- float centimeters;
- int millimeters;
+ int x;
+ int y;
+ int z;
+
 
  public:
 
-  void setDist(int mm, float cm)
-  {
-    centimeters = cm;
-    millimeters = mm;
-  }
-  Distance add(Distance);
+  void setCoords(int x, int y, int z);
+  Distance minus(Distance);
   void disp();
 
 };

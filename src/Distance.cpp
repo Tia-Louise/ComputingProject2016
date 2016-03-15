@@ -1,24 +1,26 @@
 #include <iostream>
 #include <Distance.h>
 
-Distance Distance::add(Distance D)
+
+void Distance::setCoords(int x, int y, int z)
+{
+  x;
+  y;
+  y;
+}
+
+Distance Distance::minus(Distance D)
 {
   Distance t;
-  t.millimeters=millimeters + D.millimeters;
-  t.centimeters=0;
-  if(t.millimeters>=10.0)
-  {
-    t.millimeters-=10.0;
-    t.centimeters++;
-  }
-  t.centimeters +=centimeters + D.centimeters;
+  t.x = x - D.x;
+  t.y = y - D.y;
+  t.z = z - D.z;
   return t;
 }
 
 void Distance::disp()
 {
-  std::cout<<centimeters<<" "<<millimeters<<" ";
+  std::cout<<x<<" "<<y<<" "<<z<<" "<<std::endl;
 
 }
 
-//inches = mm. feet = cm

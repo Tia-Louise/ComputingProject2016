@@ -5,6 +5,7 @@
 #include <chrono>
 #include <thread>
 #include <Distance.h>
+#include <math.h>
 
 
 
@@ -30,9 +31,9 @@
 int main()
 {
   Distance d1,d2,d3;
-  d1.setDist(10,7.1);
-  d2.setDist(23,5.5);
-  d3=d1.add(d2);
+  d1.setCoords(0,0,0);
+  d2.setCoords(0,0,0);
+  d3=d1.minus(d2);
 
   std::cout<<"\n distance 1 = "; d1.disp();
   std::cout<<"\n distance 2 = "; d2.disp();
