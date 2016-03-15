@@ -5,7 +5,7 @@
 #include <ctime>
 
 
-class Timer
+class Timer //Timer to be used
 {
 private:
   std::clock_t start, stop;

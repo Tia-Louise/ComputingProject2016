@@ -3,7 +3,7 @@
 
 
 
-Distance Distance::minus(Distance b)
+Distance Distance::minus(Distance b) //Calculates distance between two points by minusing each x,y and z component
 {
   Distance a;
   a.X = X - b.X;
