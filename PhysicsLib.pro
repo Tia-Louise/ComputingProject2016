@@ -21,3 +21,6 @@ HEADERS+=$$PWD/include/Timer.h\
 
 #Add the include dir into the search path for Qt and make
 INCLUDEPATH += ./include
+
+
+#Test
