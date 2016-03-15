@@ -6,16 +6,22 @@ class Distance //Distance between two particles
 
 private:
 
- int x;
- int y;
- int z;
+ int X;
+ int Y;
+ int Z;
 
 
- public:
+public:
 
-  void setCoords(int x, int y, int z);
-  Distance minus(Distance);
+ void setCoords(int x, int y, int z)
+ {
+   X=x;
+   Y=y;
+   Z=z;
+ }
+  Distance minus(Distance b);
   void disp();
+
 
 };
 

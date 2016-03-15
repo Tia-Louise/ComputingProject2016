@@ -9,6 +9,7 @@
 
 
 
+
 //int main()
 //{
 //  Timer aTimer;
@@ -30,14 +31,17 @@
 
 int main()
 {
-  Distance d1,d2,d3;
-  d1.setCoords(0,0,0);
-  d2.setCoords(0,0,0);
-  d3=d1.minus(d2);
+  Distance p1,p2,p3;
+  p1.setCoords(7,8,3);
+  p2.setCoords(1,1,1);
 
-  std::cout<<"\n distance 1 = "; d1.disp();
-  std::cout<<"\n distance 2 = "; d2.disp();
-  std::cout<<"\n distance 3 = "; d3.disp();
+  p3=p1.minus(p2);
+
+  std::cout<<"\n distance 1 = "; p1.disp();
+  std::cout<<"\n distance 2 = "; p2.disp();
+  std::cout<<"\n distance 3 = "; p3.disp();
+
+
 
   return 0;
 }

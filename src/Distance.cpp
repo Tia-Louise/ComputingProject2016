@@ -2,25 +2,20 @@
 #include <Distance.h>
 
 
-void Distance::setCoords(int x, int y, int z)
-{
-  x;
-  y;
-  y;
-}
 
-Distance Distance::minus(Distance D)
+Distance Distance::minus(Distance b)
 {
-  Distance t;
-  t.x = x - D.x;
-  t.y = y - D.y;
-  t.z = z - D.z;
-  return t;
+  Distance a;
+  a.X = X - b.X;
+  a.Y = Y - b.Y;
+  a.Z = Z - b.Z;
+
+  return a;
 }
 
 void Distance::disp()
 {
-  std::cout<<x<<" "<<y<<" "<<z<<" "<<std::endl;
+  std::cout<<X<<","<<Y<<","<<Z<<","<<std::endl;
 
 }
 
