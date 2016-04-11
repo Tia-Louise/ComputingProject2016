@@ -35,6 +35,9 @@ int main(int argc, char **argv)
 
     format.setProfile(QSurfaceFormat::CoreProfile);// Set to CoreProfile OpenGL so we can't use and old Immediate mode GL
     format.setDepthBufferSize(24);// Set the depth buffer to 24 bits
+
+
+
     NGLScene window;// Create window
     window.setFormat(format);//Set OpenGL format
     std::cout<<"Profile is "<<format.majorVersion()<<" "<<format.minorVersion()<<"\n";//Query the version to test if it worked.

@@ -28,12 +28,14 @@ SOURCES+=$$PWD/src/main.cpp\
 
 
 
+
 #Include all .h files from include directory
 HEADERS+=$$PWD/include/NGLScene.h\
          $$PWD/include/Emitter.h\
          $$PWD/include/Particle.h\
          $$PWD/include/Body.h\
          $$PWD/include/ParticleFactory.h\
+
 
 
 #Add the include dir into the search path for Qt and make

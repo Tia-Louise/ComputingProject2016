@@ -12,6 +12,8 @@ Particle::Particle(ngl::Vec3 _pos, ngl::Vec3 *_wind,  Emitter *_parent )//_pos t
   m_pos=_pos;
   m_origin=_pos;
   m_wind=_wind;
+  m_hit=false;
+
 
 
   ngl::Random *rand=ngl::Random::instance();
@@ -27,10 +29,16 @@ Particle::Particle(ngl::Vec3 _pos, ngl::Vec3 *_wind,  Emitter *_parent )//_pos t
 
 }
 
+Particle::Particle()
+{
+  m_hit=false;
+}
+
+
 void Particle::update()//method to update the particle position
 {
 
-  m_currentLife+=0.05;
+  m_currentLife+=0.02;
   // use projectile motion equation to calculate the new position
   // x(t)=Ix+Vxt
   // y(t)=Iy+Vxt-1/2gt^2
@@ -45,15 +53,17 @@ void Particle::update()//method to update the particle position
     m_pos=m_origin;
     m_currentLife=0.0;
     ngl::Random *rand=ngl::Random::instance();
-    m_dir.m_x=rand->randomNumber(5)+0.5;
-    m_dir.m_y=rand->randomPositiveNumber(10)+0.5;
-    m_dir.m_z=rand->randomNumber(5)+0.5;
+    m_dir.m_x=rand->randomNumber(5)+1.0;
+    m_dir.m_y=rand->randomPositiveNumber(10)+1.0;
+    m_dir.m_z=rand->randomNumber(5)+1.0;
 
   }
 }
 
 void Particle::draw()//Method to draw particle
 {
+
+
   // get the VAO instance and draw the built in Sphere
   ngl::VAOPrimitives *prim=ngl::VAOPrimitives::instance();
   ngl::Transformation transform;
@@ -83,4 +93,19 @@ void Particle::draw()//Method to draw particle
   ngl::VAOPrimitives::instance()->draw("sphere");
 
 }
+
+void Particle::move()
+{
+  // store the last position
+  m_lastPos=m_pos;
+  // update the current position
+  m_pos+=m_dir;
+  // get the next position
+  m_nextPos=m_pos+m_dir;
+  m_hit=false;
+
+}
+
+
+
 

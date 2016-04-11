@@ -1,13 +1,15 @@
 #include "Emitter.h"
 #include "ParticleFactory.h"
 #include <ngl/Random.h>
-#include <ngl/Camera.h>
+#include <typeinfo>
+
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Emitter::Emitter(ngl::Vec3 _pos, int _numParticles, ngl::Vec3 *_wind )// _pos the position of the emitter. _numParticles the number of particles to create
+Emitter::Emitter(ngl::Vec3 _pos, int _numParticles, ngl::Vec3 *_wind)// _pos the position of the emitter. _numParticles the number of particles to create
 {
+
   m_wind=_wind;
   for (int i=0; i< _numParticles; ++i)
   {
@@ -37,7 +39,7 @@ void Emitter::addParticle()
 
   delete p;//delete the factory
 
-  if(m_numParticles<400)
+  if(m_numParticles<500)
   {
     ++m_numParticles;
   }

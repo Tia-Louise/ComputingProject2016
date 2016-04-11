@@ -1,6 +1,7 @@
 #ifndef NGLSCENE_H__
 #define NGLSCENE_H__
 #include <ngl/Camera.h>
+#include <ngl/BBox.h>
 #include <ngl/Colour.h>
 #include <ngl/Light.h>
 #include <ngl/Text.h>
@@ -36,15 +37,22 @@ private:
     int m_origYPos;//previous y mouse value for Position changes
     int m_width;//Window width
     int m_height;//Window height
+    ngl::Mat4 m_mouseGlobalTX;
     ngl::Camera m_cam;//Camera
     ngl::Vec3 m_modelPos;//Model position for mouse movement
     int m_fpsTimer;//Flag for the fps T imer
     std::unique_ptr<Emitter> m_emitter;//The fps to draw
-    std::vector <Particle *>m_particle;
+    ngl::Vec3 m_emitterPos;//Emitter position to update
+    std::vector <Particle> m_particleArray;
+
     int m_particleTimer;//Particle update timer
-    ngl::Vec3 m_wind;//Wind vectore
+    ngl::Vec3 m_wind;//Wind vector
     std::unique_ptr<ngl::Text> m_text;
-    void addParticles();
+    std::unique_ptr<ngl::BBox>m_bbox;//Bounding box to contain the spheres
+
+    bool m_animate;//Flag to indicate if animation is active or not
+    void updateScene();
+    void addParticles();//Add a new particle
     void loadMatricesToShader();//Method to load transform matrices to the shader
     void keyPressEvent(QKeyEvent *_event);//Qt Event called when a key is pressed. _event the Qt event to query for size etc.
     void mouseMoveEvent (QMouseEvent * _event );//This method is called everytime a mouse is moved
@@ -52,6 +60,11 @@ private:
     void mouseReleaseEvent ( QMouseEvent *_event );//This method is called everytime the mouse button is released. Inhertited from QObject and overridden here. _event from the Qt Event structure.
     void wheelEvent( QWheelEvent *_event);//This method is called everytime the mouse wheel is moved and inherited from QObject and overridden here. _event the Qt Event structure
     void timerEvent(QTimerEvent *_event);
+    void updateEmitterPos(float _dx,float _dy,float _dz);
+    void checkCollisions();
+    void BBoxCollision();//Check the bounding box collisions
+
+
 
 };
 

@@ -13,9 +13,10 @@ class ParticleFactory
 
 
     Particle *CreateParticle(
-                              ngl::Vec3 _pos,
-                              ngl::Vec3 *_wind,
-                              Emitter *_parent
+                              ngl::Vec3 _pos,//Position of particle
+                              ngl::Vec3 *_wind,//Wind vector
+                              Emitter *_parent//The parent(Emitter used to query global values)
+
                             );
 
   private :
