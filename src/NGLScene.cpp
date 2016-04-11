@@ -95,7 +95,7 @@ void NGLScene::initializeGL()
   ngl::VAOPrimitives *prim=ngl::VAOPrimitives::instance();
 
   prim->createSphere("sphere",0.2,40);
-  m_wind.set(1,1,1);
+  m_wind.set(2,5,2);
   m_emitter.reset(new Emitter(m_emitterPos,500, &m_wind));
   m_emitter->setCam(&m_cam);
 
